@@ -1,6 +1,8 @@
 package IJG.Portal;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,11 +33,13 @@ public class ClientService {
         return currentSubRepository.findAll();
     }
 
+    @Transactional
     public String addClient(Clients client) {
         clientRepository.save(client);
         return "Successful";
     }
 
+    @Transactional
     public String addSub(CurrentSubs sub) {
         currentSubRepository.save(sub);
         return "Successful";

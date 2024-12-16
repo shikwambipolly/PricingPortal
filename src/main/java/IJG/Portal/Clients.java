@@ -23,16 +23,27 @@ public class Clients {
     @Column(name = "Revenue")
     private Integer revenue;
 
+    @Version
+    @Column(name = "version", columnDefinition = "integer default 0")
+    private Integer version = 0;
+
+    @Column(name = "is_subscribed")
+    private Boolean is_subscribed;
+
     // Constructors
     public Clients() {
+        this.version = 0; // Explicitly initialize
+        this.is_subscribed = false;
     }
-
+    
     public Clients(Integer id, String name, String email, Integer subCount, Integer revenue) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.subCount = subCount;
         this.revenue = revenue;
+        this.is_subscribed = false;
+        this.version = 0;
     }
 
     // Getters and Setters
@@ -74,6 +85,14 @@ public class Clients {
 
     public void setRevenue(Integer revenue) {
         this.revenue = revenue;
+    }
+
+    public Boolean getis_subscribed() {
+        return is_subscribed;
+    }
+
+    public void setis_subscribed(Boolean is_subscribed) {
+        this.is_subscribed = is_subscribed;
     }
 
     @Override

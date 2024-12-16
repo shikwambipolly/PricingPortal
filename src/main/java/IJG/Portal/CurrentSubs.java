@@ -13,15 +13,6 @@ public class CurrentSubs {
     @Column(name = "expiry_date")
     private Date expiryDate;
 
-    //@OneToOne
-    //@JoinColumn(name = "id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "Client"))
-    //private Clients client;
-
-    //@OneToOne
-    //@JoinColumn(name = "id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "Client"))
-    // @Column(name = )
-    // private Clients client;
-
     // Constructors
     public CurrentSubs() {
     }
@@ -29,7 +20,6 @@ public class CurrentSubs {
     public CurrentSubs(int id, Date expiryDate) {
         this.id = id;
         this.expiryDate = expiryDate;
-        //this.client = client;
     }
 
     // Getters and Setters

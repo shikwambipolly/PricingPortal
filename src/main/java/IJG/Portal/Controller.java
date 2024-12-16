@@ -35,10 +35,7 @@ public class Controller {
     }
 
     @PostMapping("/createClient")
-    public String addClient(@RequestParam int id, @RequestParam String name,
-    @RequestParam String email, @RequestParam int subcount, @RequestParam int revenue) {
-
-        Clients newClient = new Clients(id, name, email, subcount, revenue);
+    public String addClient(@RequestBody Clients newClient) {
 
         String response = userService.addClient(newClient);
 
@@ -47,14 +44,9 @@ public class Controller {
     }
 
     @PostMapping("/createSub")
-    public String addSub(@RequestParam int id, @RequestParam Date date) {
-
-        //Clients owner = userService.getClientById(id).get();
-
-        CurrentSubs newSub = new CurrentSubs(id, date);
+    public String addSub(@RequestBody CurrentSubs newSub) {
 
         String response = userService.addSub(newSub);
-
         return response + "\n" + newSub;
 
     }
